@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace KitProjects.PrimitiveTypes.Extensions
@@ -54,16 +55,34 @@ namespace KitProjects.PrimitiveTypes.Extensions
         }
 
         /// <summary>
-        /// Парсит строку в число. Если строка не является числом, возвращается <see langword="null"/>.
+        /// Парсит строку в число. Если строка не является числом, возвращается значение по умолчанию.
         /// </summary>
         /// <param name="str">Строка для парсинга.</param>
         /// <returns>
-        /// Число <see cref="int"/>, если парсинг успешен. <br></br>
+        /// Число <see cref="int"/>, если парсинг успешен.
         /// Иначе <see langword="null"/>.
         /// </returns>
         public static int? ToIntOrDefault(this string str)
         {
             var stringIsParsed = int.TryParse(str, out int result);
+            if (stringIsParsed)
+                return result;
+            else
+                return null;
+        }
+
+        /// <summary>
+        /// Парсит строку в дату. Если строка не является датой, возвращается значение по умолчанию.
+        /// </summary>
+        /// <param name="str">Строка для парсинга.</param>
+        /// <returns>
+        /// Дата <see cref="DateTime"/>, если парсинг успешен.
+        /// Иначе <see langword="null"/>.
+        /// </returns>
+        public static DateTime? ToDateTimeOrDefault(this string str)
+        {
+            var stringIsParsed = DateTime.TryParse(str, out var result);
+
             if (stringIsParsed)
                 return result;
             else
