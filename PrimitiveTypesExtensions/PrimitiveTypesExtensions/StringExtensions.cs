@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KitProjects.PrimitiveTypes.Extensions
 {
@@ -33,5 +30,27 @@ namespace KitProjects.PrimitiveTypes.Extensions
         /// <see langword="false"/>, если строка <see langword="null"/>, пустая или состоит из пробелов.
         /// </returns>
         public static bool HasValue(this string str) => !string.IsNullOrWhiteSpace(str);
+
+        /// <summary>
+        /// Соединяет исходную строку и массив строк в одну новую строку, в которой
+        /// все строки будут разделены пробелом.
+        /// </summary>
+        /// <remarks>
+        /// Исходная строка будет на первом месте.
+        /// Параметр <paramref name="strings"/> может включать в себя и пустые, и <see langword="null"/>-строки.
+        /// </remarks>
+        /// <param name="str">Исходная строка.</param>
+        /// <param name="strings">Массив строк для соединения.</param>
+        /// <returns>Новая строка, в которой все строки объединены и разделены пробелом.</returns>
+        public static string JoinSpaced(this string str, params string[] strings)
+        {
+            List<string> stringsWithValue = new();
+            if (str.HasValue())
+                stringsWithValue.Add(str);
+
+            stringsWithValue.AddRange(strings.Where(s => s.HasValue()));
+
+            return string.Join(" ", stringsWithValue);
+        }
     }
 }
