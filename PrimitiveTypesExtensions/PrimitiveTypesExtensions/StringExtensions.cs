@@ -23,5 +23,15 @@ namespace KitProjects.PrimitiveTypes.Extensions
         /// <see langword="false"/> иначе.
         /// </returns>
         public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
+
+        /// <summary>
+        /// Устанавливает, есть ли в строке какие-либо символы, кроме пробелов.
+        /// </summary>
+        /// <param name="str">Строка для проверки.</param>
+        /// <returns>
+        /// <see langword="true"/>, если в строке есть хоть один символ, отличающийся от пробела. <br></br>
+        /// <see langword="false"/>, если строка <see langword="null"/>, пустая или состоит из пробелов.
+        /// </returns>
+        public static bool HasValue(this string str) => !string.IsNullOrWhiteSpace(str);
     }
 }
