@@ -49,7 +49,9 @@ namespace KitProjects.PrimitiveTypes.Extensions
             if (str.HasValue())
                 stringsWithValue.Add(str);
 
-            stringsWithValue.AddRange(strings.Where(s => s.HasValue()));
+            stringsWithValue.AddRange(strings
+                .Where(s => s.HasValue())
+                .Select(s => s.Trim()));
 
             return string.Join(" ", stringsWithValue);
         }
