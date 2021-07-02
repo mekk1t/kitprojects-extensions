@@ -52,5 +52,22 @@ namespace KitProjects.PrimitiveTypes.Extensions
 
             return string.Join(" ", stringsWithValue);
         }
+
+        /// <summary>
+        /// Парсит строку в число. Если строка не является числом, возвращается <see langword="null"/>.
+        /// </summary>
+        /// <param name="str">Строка для парсинга.</param>
+        /// <returns>
+        /// Число <see cref="int"/>, если парсинг успешен. <br></br>
+        /// Иначе <see langword="null"/>.
+        /// </returns>
+        public static int? ToIntOrDefault(this string str)
+        {
+            var stringIsParsed = int.TryParse(str, out int result);
+            if (stringIsParsed)
+                return result;
+            else
+                return null;
+        }
     }
 }
