@@ -4,11 +4,22 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>KitProjects.PrimitiveTypes.Extensions</AssemblyName>
     <RootNamespace>KitProjects.PrimitiveTypes.Extensions</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>mekk1t</Authors>
+    <Description>Расширения примитивных типов .NET (string, int и др.)</Description>
+    <PackageProjectUrl>https://github.com/mekk1t/kitprojects-extensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mekk1t/kitprojects-extensions</RepositoryUrl>
+    <PackageTags>extensions</PackageTags>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\KitProjects.PrimitiveTypes.Extensions.xml</DocumentationFile>
     <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>bin\KitProjects.PrimitiveTypes.Extensions.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
