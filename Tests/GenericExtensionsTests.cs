@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using KitProjects.PrimitiveTypes.Extensions;
+using KP.Extensions.Generics;
 using System;
 using Xunit;
 

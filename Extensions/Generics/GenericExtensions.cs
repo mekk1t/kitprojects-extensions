@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KitProjects.PrimitiveTypes.Extensions
+namespace KP.Extensions.Generics
 {
     /// <summary>
     /// Класс расширений с применением дженериков.

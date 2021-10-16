@@ -2,24 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>KitProjects.PrimitiveTypes.Extensions</AssemblyName>
-    <RootNamespace>KitProjects.PrimitiveTypes.Extensions</RootNamespace>
+    <AssemblyName>KP.Extensions</AssemblyName>
+    <RootNamespace>KP.Extensions</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>mekk1t</Authors>
-    <Description>Расширения примитивных типов .NET (string, int и др.)</Description>
+    <Description>Расширения различных типов .NET. На данный момент есть расширения для дженериков и строк.</Description>
     <PackageProjectUrl>https://github.com/mekk1t/kitprojects-extensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/mekk1t/kitprojects-extensions</RepositoryUrl>
     <PackageTags>extensions</PackageTags>
+    <PackageIcon>extension.png</PackageIcon>
+    <PackageIconUrl />
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\KitProjects.PrimitiveTypes.Extensions.xml</DocumentationFile>
+    <DocumentationFile>bin\KP.Extensions.xml</DocumentationFile>
     <OutputPath>bin\</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DocumentationFile>bin\KitProjects.PrimitiveTypes.Extensions.xml</DocumentationFile>
+    <DocumentationFile>bin\KP.Extensions.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="extension.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>

@@ -1,10 +1,6 @@
 ﻿using FluentAssertions;
-using KitProjects.PrimitiveTypes.Extensions;
+using KP.Extensions.Strings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Tests
@@ -130,6 +126,17 @@ namespace Tests
             var result = str.ToDateTimeOrDefault();
 
             result.Should().BeNull();
+        }
+
+        private enum TestEnum { Default, One, Two }
+        [Fact]
+        public void Строковое_значение_перечисления_можно_привести_к_его_типизированному_значению()
+        {
+            var enumString = "One";
+
+            var result = enumString.ToEnum<TestEnum>();
+
+            result.Should().Be(TestEnum.One);
         }
     }
 }

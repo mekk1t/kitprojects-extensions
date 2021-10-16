@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace KitProjects.PrimitiveTypes.Extensions
+namespace KP.Extensions.Strings
 {
     /// <summary>
     /// Класс расширений для строк.
@@ -21,6 +21,19 @@ namespace KitProjects.PrimitiveTypes.Extensions
         /// <see langword="false"/> иначе.
         /// </returns>
         public static bool IsNullOrEmpty(this string str) => string.IsNullOrEmpty(str);
+
+        /// <summary>
+        /// Устанавливает, является ли строка пустой или состоит только из пробелов.
+        /// </summary>
+        /// <remarks>
+        /// Сокращение для <c>string.IsNullOrWhiteSpace(str)</c>
+        /// </remarks>
+        /// <param name="str">Исходная строка для проверки.</param>
+        /// <returns>
+        /// <see langword="true"/>, если строка является пустой или состоит из пробелов.<br></br>
+        /// <see langword="false"/> иначе.
+        /// </returns>
+        public static bool IsNullOrWhiteSpace(this string str) => string.IsNullOrWhiteSpace(str);
 
         /// <summary>
         /// Устанавливает, есть ли в строке какие-либо символы, кроме пробелов.
@@ -89,6 +102,25 @@ namespace KitProjects.PrimitiveTypes.Extensions
                 return result;
             else
                 return null;
+        }
+
+        /// <summary>
+        /// Соотносит текст к значению перечисления <typeparamref name="T"/>.
+        /// </summary>
+        /// <remarks>
+        /// Для пустой/<see langword="null"/>/пробельной строки вернётся значение по умолчанию для перечисления <typeparamref name="T"/>.
+        /// </remarks>
+        /// <typeparam name="T">Тип перечисления.</typeparam>
+        /// <param name="str">Исходная строка для интерпретации.</param>
+        /// <returns>Значение перечисления <typeparamref name="T"/>.</returns>
+        /// <exception cref="ArgumentException">Если <paramref name="str"/> не входит в значения <typeparamref name="T"/>.</exception>
+        /// <exception cref="OverflowException"></exception>
+        public static T ToEnum<T>(this string str) where T : Enum
+        {
+            if (str.IsNullOrEmpty() || str.IsNullOrWhiteSpace())
+                return default;
+
+            return (T)Enum.Parse(typeof(T), str);
         }
     }
 }
